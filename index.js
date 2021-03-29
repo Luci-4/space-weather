@@ -4,6 +4,7 @@ const fetch = require("node-fetch");
 const cmeFile = require("./cme");
 const gstFile = require("./gst");
 const flrFile = require("./flr");
+const messageFile = require("./message");
 
 const app = express();
 app.listen(3000, () => console.log("listening at 3000"));
@@ -63,7 +64,7 @@ app.get('/rbe', async (request, response) => {
     // radiation belt enhancement
 
     const fetchResponse = await fetch(
-        `https://api.nasa.gov/DONKI/RBE?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key=${apiKey}`
+        `https://api.nasa.gov/DONKI/RBE?endDate=2021-03-29&api_key=${apiKey}`
     )
     const data = await fetchResponse.json();
     response.json(data);
@@ -71,7 +72,7 @@ app.get('/rbe', async (request, response) => {
 })
 
 app.get('/hss', async (request, response) => {
-    // hight speed stream
+    // high speed stream
 
     const fetchResponse = await fetch(
         `https://api.nasa.gov/DONKI/HSS?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key=${apiKey}`
@@ -84,10 +85,14 @@ app.get('/hss', async (request, response) => {
 app.get('/notifications', async (request, response) => {
 
     const fetchResponse = await fetch(
-        `https://api.nasa.gov/DONKI/notifications?startDate=2014-05-01&endDate=2014-05-08&type=all&api_key=${apiKey}`
+        `https://api.nasa.gov/DONKI/notifications?endDate=2021-03-29&type=all&api_key=${apiKey}`
     )
     const data = await fetchResponse.json();
-    response.json(data);
+    const messages = data.map(messageObj => {
+        return new messageFile.Message(messageObj);
+    })
+    
+    response.json(messages);
 
 })
 

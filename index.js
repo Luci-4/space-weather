@@ -3,6 +3,7 @@ require("dotenv").config();
 const fetch = require("node-fetch");
 const cmeFile = require("./cme");
 const gstFile = require("./gst");
+const flrFile = require("./flr");
 
 const app = express();
 app.listen(3000, () => console.log("listening at 3000"));
@@ -53,7 +54,8 @@ app.get('/flr', async (request, response) => {
         `https://api.nasa.gov/DONKI/FLR?&endDate=2021-03-28&api_key=${apiKey}`
     )
     const data = await fetchResponse.json();
-    response.json(data);
+    const FLRObject = new flrFile.FLR(data.slice(-1)[0]);
+    response.json(FLRObject);
 
 })
 

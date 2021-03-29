@@ -1,6 +1,7 @@
 const express = require('express');
 require("dotenv").config();
 const fetch = require("node-fetch");
+const cmeFile = require("./cme");
 
 const app = express();
 app.listen(3000, () => console.log("listening at 3000"));
@@ -15,8 +16,11 @@ app.get('/cme', async (request, response) => {
         `https://api.nasa.gov/DONKI/CME?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key=${apiKey}`
     )
     const data = await fetchResponse.json();
-    response.json(data);
     
+    
+    const CMEObject = new cmeFile.CME(data.slice(-1)[0]);
+
+    response.json(CMEObject);
     
 })
 
@@ -24,7 +28,7 @@ app.get('/cmeanalisys', async (request, response) => {
     
     
     const fetchResponse = await fetch(
-        `https://api.nasa.gov/DONKI/CMEAnalysis?startDate=2016-09-01&endDate=2016-09-30&mostAccurateOnly=true&speed=500&halfAngle=30&catalog=ALL&api_key=${apiKey}`
+        `https://api.nasa.gov/DONKI/CMEAnalysis?startDate=2021-03-25&endDate=2021-03-29&mostAccurateOnly=true&catalog=ALL&api_key=${apiKey}`
     )
     const data = await fetchResponse.json();
     response.json(data);

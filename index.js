@@ -2,6 +2,7 @@ const express = require('express');
 require("dotenv").config();
 const fetch = require("node-fetch");
 const cmeFile = require("./cme");
+const gstFile = require("./gst");
 
 const app = express();
 app.listen(3000, () => console.log("listening at 3000"));
@@ -36,22 +37,20 @@ app.get('/cmeanalisys', async (request, response) => {
     
 })
 
-app.get('/gst', async (request, response) => {
+
+app.get("/gst", async (request, response) => {
     // geomagnetic storm
-    
     const fetchResponse = await fetch(
-        `https://api.nasa.gov/DONKI/GST?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key=${apiKey}`
+        `https://api.nasa.gov/DONKI/GST?endDate=2021-03-28&api_key=${apiKey}`
     )
     const data = await fetchResponse.json();
-    response.json(data);
-    
-    
+    const GSTObject = new gstFile.GST(data.slice(-1)[0]);
+    response.json(GSTObject)
 })
-
 app.get('/flr', async (request, response) => {
     // solar flare
     const fetchResponse = await fetch(
-        `https://api.nasa.gov/DONKI/FLR?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key=${apiKey}`
+        `https://api.nasa.gov/DONKI/FLR?&endDate=2021-03-28&api_key=${apiKey}`
     )
     const data = await fetchResponse.json();
     response.json(data);

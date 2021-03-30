@@ -2,10 +2,10 @@ const fetch = require("node-fetch");
 const express = require('express');
 require("dotenv").config();
 
-const cmeFile = require("../cme");
-const gstFile = require("../gst");
-const flrFile = require("../flr");
-const messageFile = require("../message");
+const cmeFile = require("../classes/cme");
+const gstFile = require("../classes/gst");
+const flrFile = require("../classes/flr");
+const messageFile = require("../classes/message");
 
 
 const getPosts = (req, res) => {

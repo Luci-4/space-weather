@@ -1,10 +1,7 @@
 const express = require('express');
 require("dotenv").config();
 const fetch = require("node-fetch");
-const cmeFile = require("./cme");
-const gstFile = require("./gst");
-const flrFile = require("./flr");
-const messageFile = require("./message");
+
 const postRoutes = require("./routes/posts");
 
 const app = express();

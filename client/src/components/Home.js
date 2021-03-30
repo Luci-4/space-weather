@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 function Home() {
     const [dataObjects, setDataObjects] = useState(null);
     useEffect(() => {
-        const args = ["cme", "gst", "flr", "rbe", "hss", "notifications"]
+        const args = ["cme", "gst", "flr", "notifications"]
         let dataObjects = [];
         async function fetchData(arg){
             const api_url = `posts/${arg}/`;

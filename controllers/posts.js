@@ -54,29 +54,6 @@ const getFLR = async (req, res) => {
     res.json(FLRObject);
 }
 
-
-const getRBE = async (req, res) => {
-    // radiation belt enhancement
-
-    const apiKey = process.env.API_KEY;
-    const fetchResponse = await fetch(
-        `https://api.nasa.gov/DONKI/RBE?endDate=2021-03-29&api_key=${apiKey}`
-    )
-    const data = await fetchResponse.json();
-    res.json(data);
-}
-
-const getHSS = async (req, res) => {
-    // high speed stream
-
-    const apiKey = process.env.API_KEY;
-    const fetchResponse = await fetch(
-        `https://api.nasa.gov/DONKI/HSS?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key=${apiKey}`
-    )
-    const data = await fetchResponse.json();
-    res.json(data);
-}
-
 const getNotifications = async (req, res) => {
 
     const apiKey = process.env.API_KEY;
@@ -95,7 +72,5 @@ module.exports = {
     getCME, 
     getGST, 
     getFLR, 
-    getRBE,
-    getHSS,
     getNotifications
 };

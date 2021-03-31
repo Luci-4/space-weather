@@ -15,57 +15,74 @@ const getPosts = (req, res) => {
 
 const getCME = async (req, res) => {
     // coronal mass ejection
-
-    const apiKey = process.env.API_KEY;
-    const fetchResponse = await fetch(
-        `https://api.nasa.gov/DONKI/CME?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key=${apiKey}`
-    )
-    const data = await fetchResponse.json();
+    try{
+        const apiKey = process.env.API_KEY;
+        const fetchResponse = await fetch(
+        `https://api.nasa.gov/DONKI/CME?endDate=2021-03-29&api_key=${apiKey}`
+        )
+        const data = await fetchResponse.json();
     
     
-    const CMEObject = new cmeFile.CME(data.slice(-1)[0]);
+        const CMEObject = new cmeFile.CME(data.slice(-1)[0]);
 
-    res.json(CMEObject);
+        res.status(200).json(CMEObject);
+    } catch (error) {
+        res.status(404).json({message: error.message});
+    }
+    
 }
 
 const getGST = async (req, res) => {
     // geomagnetic storm
 
-    const apiKey = process.env.API_KEY;
+    try {
+        const apiKey = process.env.API_KEY;
     
-    const fetchResponse = await fetch(
-        `https://api.nasa.gov/DONKI/GST?endDate=2021-03-28&api_key=${apiKey}`
-    )
-    const data = await fetchResponse.json();
-    const GSTObject = new gstFile.GST(data.slice(-1)[0]);
-    res.json(GSTObject)
+        const fetchResponse = await fetch(
+            `https://api.nasa.gov/DONKI/GST?endDate=2021-03-28&api_key=${apiKey}`
+        )
+        const data = await fetchResponse.json();
+        const GSTObject = new gstFile.GST(data.slice(-1)[0]);
+        res.status(200).json(GSTObject)
+    } catch (error) {
+        res.status(404).json({message: error.message})
+    }
+    
     
 }
 
 const getFLR = async (req, res) => {
     // solar flare
-
-    const apiKey = process.env.API_KEY;
-    const fetchResponse = await fetch(
-        `https://api.nasa.gov/DONKI/FLR?&endDate=2021-03-28&api_key=${apiKey}`
-    )
-    const data = await fetchResponse.json();
-    const FLRObject = new flrFile.FLR(data.slice(-1)[0]);
-    res.json(FLRObject);
+    try {
+        const apiKey = process.env.API_KEY;
+        const fetchResponse = await fetch(
+            `https://api.nasa.gov/DONKI/FLR?&endDate=2021-03-28&api_key=${apiKey}`
+        )
+        const data = await fetchResponse.json();
+        const FLRObject = new flrFile.FLR(data.slice(-1)[0]);
+        res.status(200).json(FLRObject);
+    } catch (error) {
+        res.status(404).json({message: error.message})
+    }
+    
 }
 
 const getNotifications = async (req, res) => {
-
-    const apiKey = process.env.API_KEY;
-    const fetchResponse = await fetch(
-        `https://api.nasa.gov/DONKI/notifications?endDate=2021-03-29&type=all&api_key=${apiKey}`
-    )
-    const data = await fetchResponse.json();
-    const messages = data.map(messageObj => {
-        return new messageFile.Message(messageObj);
-    })
+    try {
+        const apiKey = process.env.API_KEY;
+        const fetchResponse = await fetch(
+            `https://api.nasa.gov/DONKI/notifications?endDate=2021-03-29&type=all&api_key=${apiKey}`
+        )
+        const data = await fetchResponse.json();
+        const messages = data.map(messageObj => {
+            return new messageFile.Message(messageObj);
+        })
+        
+        res.json(messages);
+    } catch (error) {
+        res.status(404).json({message: error.message})
+    }
     
-    res.json(messages);
 }
 module.exports = {
     getPosts, 

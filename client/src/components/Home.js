@@ -1,29 +1,48 @@
+import fetch from "node-fetch";
 import React, {useState, useEffect} from "react";
+import NotificationBar from "./NotificationBar";
 
 function Home() {
-    const [dataObjects, setDataObjects] = useState(null);
+    const [CMEData, setCMEData] = useState(null);
+    const [GSTData, setGSTData] = useState(null);
+    const [FLRData, setFLRData] = useState(null);
+    const [NotificationsData, setNotificationsData] = useState(null);
+
     useEffect(() => {
-        const args = ["cme", "gst", "flr", "notifications"]
-        let dataObjects = [];
-        async function fetchData(arg){
-            const api_url = `posts/${arg}/`;
-            const res = await fetch(api_url);
+        
+        const args = {
+            "cme": setCMEData, 
+            "gst": setGSTData, 
+            "flr": setFLRData, 
+            "notifications": setNotificationsData
+        }
+
+        async function fetchData(){
             
-            const data = await res.json();
-            dataObjects.push(data);
-            console.log(arg);
-            console.log(data);
+                for(let arg of Object.keys(args)){
+                    const api_url = `posts/${arg}/`;
+                    const res = await fetch(api_url);
+                    
+                    const data = await res.json();
+                    console.log(arg);
+                    console.log(data);
+                    args[arg](data);
+            }
+            
         }
-        console.log("in home")
-        for(let arg of args){
-            fetchData(arg);
-        }
-        setDataObjects(dataObjects);
+        fetchData();
     }, [])
+    if(!GSTData || !CMEData || !FLRData || !NotificationsData) {return <div>NOT WORKING </div>}
+    console.log("constructing...")
     
+    // console.log("cmedata:", CMEData);
+    // console.log("gstdata: ", GSTData);
+    // console.log("flrdata:", FLRData);
+    // console.log("notifdata: ", NotificationsData);
     return (
         <div>
-            <h1>Hello {dataObjects}</h1>
+            <h1>Hello</h1>
+            <NotificationBar messages={NotificationsData}/>
         </div>
     );
 }

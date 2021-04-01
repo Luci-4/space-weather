@@ -1,11 +1,12 @@
 import Notification from "./Notification";
+import {getDateTimeValue} from "../utils/dateTime.js";
 
 function NotificationBar(props) {
     
     
     const notificationList = props.messages
     .sort((a, b) => {
-        return b.dateTimeValue - a.dateTimeValue;
+        return getDateTimeValue(b.issueTime) - getDateTimeValue(a.issueTime);
     })
     .map(message => <li key={message.id}><Notification message={message}/></li>)
     

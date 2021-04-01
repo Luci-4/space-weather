@@ -1,3 +1,4 @@
+import {formatDateTime} from "../utils/dateTime";
 const { useEffect, useState } = require("react");
 
 function Notification(props) {
@@ -13,7 +14,7 @@ function Notification(props) {
                 
             </div>
             <div className="message-date">
-                <p>{props.message.issueTime}</p>
+                <p>{formatDateTime(props.message.issueTime)}</p>
             </div>
             <div className="message-summary">
                 <p>{props.message.body.summary}</p>

@@ -1,8 +1,10 @@
+import {formatDateTime} from "../utils/dateTime.js";
+
 function FLR(props){
     return (
         <div>
             <h2>Solar Flare</h2>
-            <p>{props.flr.beginTime.replace(/T/g, " ").replace(/Z/, " UTC")} - {props.flr.endTime.replace(/T/g, " ").replace(/Z/, " UTC")}</p>
+            <p>{formatDateTime(props.flr.beginTime)} - {formatDateTime(props.flr.endTime)}</p>
             <p>Peak time: {props.flr.peakTime}</p>
             <p>Class type: {props.flr.classType}</p>
             {/* add symbols and scales for that */}

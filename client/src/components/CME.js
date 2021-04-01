@@ -1,9 +1,11 @@
+import {formatDateTime} from "../utils/dateTime";
+
 function CME(props) {
     
     return (
         <div>
             <h2>Coronal Mass Ejection</h2>
-            <p>{props.cme.startTime.replace(/T/g, " ").replace(/Z/, " UTC")}</p>
+            <p>{formatDateTime(props.cme.startTime)} UTC</p>
             <p>Position: [{props.cme.latitude}, {props.cme.longitude}]</p>
             <p>Half Angle: {props.cme.halfAngle}</p>
             <p>Speed: {props.cme.speed} km/s (type {props.cme.type})</p>

@@ -9,14 +9,14 @@ function Notification(props) {
     return (
         <div className="notification">
             <div className="message-title">
-                <h2>{props.message.messageBody.type}</h2>
+                <h2>{props.message.body.type}</h2>
                 
             </div>
             <div className="message-date">
-                <p>{props.message.messageIssueTime}</p>
+                <p>{props.message.issueTime}</p>
             </div>
             <div className="message-summary">
-                <p>{props.message.messageBody.summary}</p>
+                <p>{props.message.body.summary}</p>
             </div>
         </div>
     )

@@ -1,6 +1,9 @@
 import fetch from "node-fetch";
 import React, {useState, useEffect} from "react";
 import NotificationBar from "./NotificationBar";
+import CME from "./CME";
+import GST from "./GST";
+import FLR from "./FLR";
 
 function Home() {
     const [CMEData, setCMEData] = useState(null);
@@ -32,7 +35,7 @@ function Home() {
         }
         fetchData();
     }, [])
-    if(!GSTData || !CMEData || !FLRData || !NotificationsData) {return <div>NOT WORKING </div>}
+    if(!GSTData || !CMEData || !FLRData || !NotificationsData) {return <h1>LOADING... </h1>}
     console.log("constructing...")
     
     // console.log("cmedata:", CMEData);
@@ -42,6 +45,9 @@ function Home() {
     return (
         <div>
             <h1>Hello</h1>
+            <CME cme={CMEData}/>
+            <GST gst={GSTData}/>
+            <FLR flr={FLRData}/>
             <NotificationBar messages={NotificationsData}/>
         </div>
     );

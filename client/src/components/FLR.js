@@ -1,10 +1,12 @@
-import {formatDateTime} from "../utils/dateTime.js";
+import {formatDateTime, abbreviateSecondDateTimeInInterval} from "../utils/dateTime.js";
 
 function FLR(props){
+    let formatedBeginDateTime = formatDateTime(props.flr.beginTime);
+    let formatedEndDateTime = formatDateTime(props.flr.endTime);
     return (
         <div>
             <h2>Solar Flare</h2>
-            <p>{formatDateTime(props.flr.beginTime)} - {formatDateTime(props.flr.endTime)}</p>
+            <p>{formatedBeginDateTime} - {abbreviateSecondDateTimeInInterval(formatedBeginDateTime, formatedEndDateTime)} UTC</p>
             <p>Peak time: {props.flr.peakTime}</p>
             <p>Class type: {props.flr.classType}</p>
             {/* add symbols and scales for that */}

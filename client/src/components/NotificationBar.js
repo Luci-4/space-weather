@@ -1,5 +1,6 @@
 import Notification from "./Notification";
 import {getDateTimeValue} from "../utils/dateTime.js";
+import "./NotificationBar.css";
 
 function NotificationBar(props) {
     
@@ -12,9 +13,12 @@ function NotificationBar(props) {
     
 
     return (
-        <ul>
-            {notificationList}
-        </ul>
+        <div className="notification-bar">
+             <ul>
+                {notificationList}
+            </ul>
+        </div>
+       
     );
 }
 

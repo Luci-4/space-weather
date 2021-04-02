@@ -1,0 +1,21 @@
+.component {
+    background: #1F2833;
+    color: #C5C6C7;
+    width: 33%;
+    
+}
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+
+.date {
+    color: #45A29E;
+    right: 12px;
+}
+
+.title {
+    color: #45A29E;
+}

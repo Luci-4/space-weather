@@ -1,4 +1,5 @@
 import {formatDateTime} from "../utils/dateTime.js";
+import "./Component.css";
 
 function GST(props) {
     const kpIndicesItems = props.gst.kpIndices.map(kpIndex => {
@@ -10,9 +11,12 @@ function GST(props) {
     })
     
     return (
-        <div>
-            <h2>Geomagnetic Storm</h2>
-            <p>Start time: {formatDateTime(props.gst.startTime)} UTC</p>
+        <div className="component gst">
+            <span className="event-header">
+                <h2 className="title">Geomagnetic Storm</h2>
+                <p className="date">{formatDateTime(props.gst.startTime)} UTC</p>
+            </span>
+            
             <ul>
                 {kpIndicesItems}
             </ul>

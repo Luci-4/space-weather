@@ -16,9 +16,9 @@ function Notification(props) {
             <div className="message-date">
                 <p>{formatDateTime(props.message.issueTime)}</p>
             </div>
-            <div className="message-summary">
+            {/* <div className="message-summary">
                 <p>{props.message.body.summary}</p>
-            </div>
+            </div> */}
         </div>
     )
 }

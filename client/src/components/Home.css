@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+}
+
+.main {
+    width: 70vw;
+    display: flex;
+}
+
+.sidebar {
+    width: 30vw;
+}

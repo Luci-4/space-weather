@@ -21,11 +21,15 @@ const getCME = async (req, res) => {
         `https://api.nasa.gov/DONKI/CME?endDate=2021-03-29&api_key=${apiKey}`
         )
         const data = await fetchResponse.json();
-    
-    
-        const CMEObject = new cmeFile.CME(data.slice(-1)[0]);
+        
+        const CMEObjects = data.reverse().map(cmeData => {
+           
+            return new cmeFile.CME(cmeData);
+        })
+        
+        // const CMEObject = new cmeFile.CME(data.slice(-1));
 
-        res.status(200).json(CMEObject);
+        res.status(200).json(CMEObjects);
     } catch (error) {
         res.status(404).json({message: error.message});
     }
@@ -42,8 +46,12 @@ const getGST = async (req, res) => {
             `https://api.nasa.gov/DONKI/GST?endDate=2021-03-28&api_key=${apiKey}`
         )
         const data = await fetchResponse.json();
-        const GSTObject = new gstFile.GST(data.slice(-1)[0]);
-        res.status(200).json(GSTObject)
+        console.log(data.length);
+        const GSTObjects = data.reverse().map(gstData =>{
+            return new gstFile.GST(gstData);
+        })
+        // const GSTObject = new gstFile.GST(data.slice(-1)[0]);
+        res.status(200).json(GSTObjects)
     } catch (error) {
         res.status(404).json({message: error.message})
     }
@@ -59,8 +67,11 @@ const getFLR = async (req, res) => {
             `https://api.nasa.gov/DONKI/FLR?&endDate=2021-03-28&api_key=${apiKey}`
         )
         const data = await fetchResponse.json();
-        const FLRObject = new flrFile.FLR(data.slice(-1)[0]);
-        res.status(200).json(FLRObject);
+        const FLRObjects = data.reverse().map(flrData => {
+            return new flrFile.FLR(flrData);
+        })
+        // const FLRObject = new flrFile.FLR(data.slice(-1)[0]);
+        res.status(200).json(FLRObjects);
     } catch (error) {
         res.status(404).json({message: error.message})
     }

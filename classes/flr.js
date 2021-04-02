@@ -1,14 +1,13 @@
 class FLR {
     constructor(FLRData){
-        this.activeRegionNum = FLRData.activeRegionNum;
-        this.beginTime = FLRData.beginTime;
-        this.endTime = FLRData.endTime;
-        this.classType = FLRData.classType;
-        this.class = FLRData.classType[0]; // letter A, B, C, M or X
-        this.score = parseFloat(FLRData.classType.substring(1))
-        console.log(this.classType, ":::", this.class, this.score)
-        this.peakTime = FLRData.peakTime;
-        this.sourceLocation = FLRData.sourceLocation;
+        this.activeRegionNum = FLRData?.activeRegionNum ?? null;
+        this.beginTime = FLRData?.beginTime ?? null;
+        this.endTime = FLRData?.endTime ?? null;
+        this.classType = FLRData?.classType ?? null;
+        this.class = FLRData?.classType?.[0] ?? null; // letter A, B, C, M or X
+        this.score = parseFloat(FLRData?.classType?.substring(1)) ?? null
+        this.peakTime = FLRData?.peakTime ?? null;
+        this.sourceLocation = FLRData?.sourceLocation ?? null;
     }
 }
 

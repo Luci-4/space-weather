@@ -2,29 +2,33 @@ const CMEImpactFile = require("./cmeImpact");
 
 class CME {
     constructor(cmeData) {
-        this.startTime = cmeData.startTime;
-        // console.log("-------------------------");
-        // console.log(cmeData);
-        this.latitude = cmeData.cmeAnalyses[0].latitude;
-        this.longitude = cmeData.cmeAnalyses[0].longitude;
+        
+        this.startTime = cmeData?.startTime ?? null;
+        this.note = cmeData?.note ?? null;
+        const analysis = cmeData?.cmeAnalyses?.[0] ?? null;
 
-        this.note = cmeData.note;
+        this.latitude = analysis?.latitude ?? null;
+        this.longitude = analysis?.longitude ?? null;
+        this.halfAngle = analysis?.halfAngle ?? null;
+        this.speed = analysis?.speed ?? null;
 
-        this.halfAngle = cmeData.cmeAnalyses[0].halfAngle;
-        this.speed = cmeData.cmeAnalyses[0].speed;
+        this.type = analysis?.type ?? null;
 
-        this.type = cmeData.cmeAnalyses[0].type;
-
-        this.analysisNote = cmeData.cmeAnalyses[0].note;
-
-        this.isEarthGB = cmeData.cmeAnalyses[0].enlilList[0].isEarthGB;
-        this.impactList = cmeData.cmeAnalyses[0].enlilList[0].impactList.map(obj => {
+        this.analysisNote = analysis?.note ?? null;
+        
+        const enlil = analysis?.enlilList?.[0] ?? null;
+        this.isEarthGB = enlil?.isEarthGB ?? null;
+            
+            
+        this.impactList = enlil?.impactList?.map(obj => {
+    
             return new CMEImpactFile.CMEImpact(
-                obj.isGlancingBlow,
-                obj.location,
-                obj.arrivalTime
-                );
-        });
+            obj.isGlancingBlow,
+            obj.location,
+            obj.arrivalTime
+            );
+        }) ?? null;
+       
     }
 }
 

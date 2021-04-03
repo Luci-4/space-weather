@@ -1,5 +1,4 @@
 import {formatDateTime, abbreviateSecondDateTimeInInterval} from "../utils/dateTime.js";
-import Scale from "./Scale";
 import "./Component.css"
 
 function FLR(props){
@@ -22,7 +21,7 @@ function FLR(props){
             <p>Peak time: {props.flr.peakTime}</p>
             <p>Strength: {props.flr.classType}</p>
             
-            <Scale points={Object.keys(classes)}/>
+            
             {/* add symbols and scales for that ABCMX (1.0 -9.0)*/}
             <p>Active Region: {props.flr.activeRegionNum}</p>
             <p>Source Location: {props.flr.sourceLocation}</p>

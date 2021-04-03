@@ -1,10 +1,12 @@
 import fetch from "node-fetch";
 import React, {useState, useEffect} from "react";
-import NotificationBar from "./NotificationBar";
-import CME from "./CME";
-import GST from "./GST";
-import FLR from "./FLR";
+import NotificationBar from "../NotificationBar";
+import CME from "../CME";
+import GST from "../GST";
+import FLR from "../FLR";
 import "./Home.css";
+import image from "./xraysun.jpg";
+import RecentEvents from "./RecentEvents";
 
 function Home() {
     const [CMEData, setCMEData] = useState(null);
@@ -39,18 +41,20 @@ function Home() {
     if(!GSTData || !CMEData || !FLRData || !NotificationsData) {return <h1>LOADING... </h1>}
     
     return (
+
         <div className="container">
+            {/* <img src={image} alt="idk"/> */}
+            <RecentEvents/>
             <span className="main">
-                <CME cme={CMEData}/>
-                <GST gst={GSTData}/>
-                <FLR flr={FLRData}/>
+                
             </span>
-            <span className="sidebar">
+            {/* <span className="sidebar">
                 <NotificationBar messages={NotificationsData}/>
-            </span>
+            </span>  */}
             
             
         </div>
+        
     );
 }
 

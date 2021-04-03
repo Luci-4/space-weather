@@ -1,12 +1,15 @@
 .container {
     display: flex;
 }
+.container >img {
+    width: 100vw;
+}
 
-.main {
+/* .main {
     width: 70vw;
     display: flex;
 }
 
 .sidebar {
     width: 30vw;
-}
+} */

@@ -4,7 +4,6 @@ import "./NotificationBar.css";
 
 function NotificationBar(props) {
     
-    
     const notificationList = props.messages
     .sort((a, b) => {
         return getDateTimeValue(b.issueTime) - getDateTimeValue(a.issueTime);

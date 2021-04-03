@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 async function fetchData(arg){
     const api_url = `posts/${arg}/`;
     const res = await fetch(api_url);

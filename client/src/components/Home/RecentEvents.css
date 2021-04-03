@@ -1,0 +1,27 @@
+.RecentEvents {
+    width: 750px;
+    background: #323544;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    margin-top: -150px;
+    margin-bottom: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 12px;
+    
+}
+
+.recent-events-container {
+    margin-top: 20px;
+    background: #323544;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    overflow: hidden;
+    
+    color: white;
+    height: auto;
+}

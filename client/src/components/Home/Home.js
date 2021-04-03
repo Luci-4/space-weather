@@ -7,6 +7,7 @@ import FLR from "../FLR";
 import "./Home.css";
 import image from "./xraysun.jpg";
 import RecentEvents from "./RecentEvents";
+import {fetchData} from "../../utils/data";
 
 function Home() {
     const [CMEData, setCMEData] = useState(null);
@@ -23,20 +24,25 @@ function Home() {
             "notifications": setNotificationsData
         }
 
-        async function fetchData(){
+        // async function fetchData(){
             
-                for(let arg of Object.keys(args)){
-                    const api_url = `posts/${arg}/`;
-                    const res = await fetch(api_url);
+        //         for(let arg of Object.keys(args)){
+        //             const api_url = `posts/${arg}/`;
+        //             const res = await fetch(api_url);
                     
-                    const data = await res.json();
-                    console.log(arg);
-                    console.log(data);
-                    args[arg](data);
-            }
+        //             const data = await res.json();
+        //             console.log(arg);
+        //             console.log(data);
+        //             args[arg](data);
+        //     }
             
-        }
-        fetchData();
+        // }
+        
+        Object.keys(args).forEach(key => {
+            
+            args[key](fetchData(key))
+        })
+        
     }, [])
     if(!GSTData || !CMEData || !FLRData || !NotificationsData) {return <h1>LOADING... </h1>}
     

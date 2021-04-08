@@ -1,5 +1,6 @@
 class FLR {
     constructor(FLRData){
+        this.typeName = "Solar FLare";
         this.activeRegionNum = FLRData?.activeRegionNum ?? null;
         this.beginTime = FLRData?.beginTime ?? null;
         this.endTime = FLRData?.endTime ?? null;

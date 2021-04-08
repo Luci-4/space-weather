@@ -2,7 +2,7 @@ const CMEImpactFile = require("./cmeImpact");
 
 class CME {
     constructor(cmeData) {
-        
+        this.typeName = "Coronal Mass Ejection";
         this.startTime = cmeData?.startTime ?? null;
         this.note = cmeData?.note ?? null;
         const analysis = cmeData?.cmeAnalyses?.[0] ?? null;

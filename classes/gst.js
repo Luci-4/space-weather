@@ -2,6 +2,7 @@ const gstKpIndexFile = require("./gstKpIndex");
 
 class GST {
     constructor(gstData) {
+        this.typeName = "Magnetic Geostorm";
         this.startTime = gstData?.startTime ?? null;
         this.kpIndices = gstData?.allKpIndex?.map((obj, index) => {
             let uniqueId = gstData?.gstID + `${index}`;

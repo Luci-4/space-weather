@@ -2,7 +2,7 @@
 import React from "react";
 import "./Home.css";
 
-import RecentEvents from "./RecentEvents";
+import RecentEvents from "./Recent/RecentEvents";
 
 function Home() {
     

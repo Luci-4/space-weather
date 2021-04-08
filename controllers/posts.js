@@ -46,7 +46,6 @@ const getGST = async (req, res) => {
             `https://api.nasa.gov/DONKI/GST?endDate=2021-03-28&api_key=${apiKey}`
         )
         const data = await fetchResponse.json();
-        console.log(data.length);
         const GSTObjects = data.reverse().map(gstData =>{
             return new gstFile.GST(gstData);
         })

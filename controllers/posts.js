@@ -17,8 +17,10 @@ const getCME = async (req, res) => {
     // coronal mass ejection
     try{
         const apiKey = process.env.API_KEY;
+        const date = new Date();
+        let endDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
         const fetchResponse = await fetch(
-        `https://api.nasa.gov/DONKI/CME?endDate=2021-03-29&api_key=${apiKey}`
+        `https://api.nasa.gov/DONKI/CME?endDate=${endDate}&api_key=${apiKey}`
         )
         const data = await fetchResponse.json();
         
@@ -41,9 +43,11 @@ const getGST = async (req, res) => {
 
     try {
         const apiKey = process.env.API_KEY;
-    
+        const date = new Date();
+        let endDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+        let startDate = `${date.getFullYear() -1}-${date.getMonth() + 1}-${date.getDate()}`;
         const fetchResponse = await fetch(
-            `https://api.nasa.gov/DONKI/GST?endDate=2021-03-28&api_key=${apiKey}`
+            `https://api.nasa.gov/DONKI/GST?startDate=${startDate}&endDate=${endDate}&api_key=${apiKey}`
         )
         const data = await fetchResponse.json();
         const GSTObjects = data.reverse().map(gstData =>{
@@ -62,8 +66,10 @@ const getFLR = async (req, res) => {
     // solar flare
     try {
         const apiKey = process.env.API_KEY;
+        const date = new Date();
+        let endDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
         const fetchResponse = await fetch(
-            `https://api.nasa.gov/DONKI/FLR?&endDate=2021-03-28&api_key=${apiKey}`
+            `https://api.nasa.gov/DONKI/FLR?endDate=${endDate}&api_key=${apiKey}`
         )
         const data = await fetchResponse.json();
         const FLRObjects = data.reverse().map(flrData => {
@@ -80,8 +86,10 @@ const getFLR = async (req, res) => {
 const getNotifications = async (req, res) => {
     try {
         const apiKey = process.env.API_KEY;
+        const date = new Date();
+        let endDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
         const fetchResponse = await fetch(
-            `https://api.nasa.gov/DONKI/notifications?endDate=2021-03-29&type=all&api_key=${apiKey}`
+            `https://api.nasa.gov/DONKI/notifications?endDate=${endDate}&type=all&api_key=${apiKey}`
         )
         const data = await fetchResponse.json();
         const messages = data.map(messageObj => {

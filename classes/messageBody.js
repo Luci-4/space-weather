@@ -1,6 +1,7 @@
 class MessageBody {
     constructor(messageBody){
         this.type = this.getMessageBodyPart("Message Type", messageBody);
+        this.type = this.type.includes("Weekly Space Weather Summary Report for") ? this.type : this.type.substring(this.type.indexOf(" - ") + 3);
         this.summary = this.getMessageBodyPart("Summary", messageBody);
     }
 

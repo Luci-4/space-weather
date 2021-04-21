@@ -1,0 +1,50 @@
+.page-title, .page-title-mobile {
+    color: white;
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Catamaran', sans-serif;
+    cursor:default;
+    
+
+}
+.page-title-mobile {
+    display: none;
+    font-size: 60px;
+    margin-left: 0;
+}
+.title-letter {
+    font-family: 'Strait', sans-serif;
+    
+    
+}
+.title-letter:hover {
+    /* color: red; */
+    
+    /* text-shadow: -8px 8px 0 #41ba45,
+	8px 8px 0 #c63d2b,
+	8px -8px 0 #42afac,
+	-8px -8px 0 #c6c23f; */
+    text-transform: uppercase;
+    color: rgba(0,168,255,0.5);
+    text-shadow: 8px 8px 0 rgba(255, 0, 180, 50%);
+}
+.first-title-letter {
+    color: rgba(0,168,255,0.5);
+    text-shadow: 8px 8px 0 rgba(255, 0, 180, 50%);
+}
+
+
+@media screen and (max-width: 990px){
+    .page-title{
+        display: none;
+
+    }
+    .page-title-mobile {
+        display: block;
+    }
+
+}

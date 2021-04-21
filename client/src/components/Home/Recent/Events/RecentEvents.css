@@ -41,7 +41,8 @@
     height: auto;
     border-radius: 12px;
     /* border: 4px solid rgba(0, 153, 255, 0.7); */
-    border: 3px solid rgb(52, 180, 255);;
+    /* border: 3px solid rgb(52, 180, 255); */
+    border: 7px solid rgba(255, 255, 255, 0.1);
     
 }
 
@@ -62,6 +63,7 @@
 .grid-field{
     padding-top: 20px;
     text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .latlong {
@@ -94,4 +96,15 @@
     font-weight: 300;
     font-family: "Roboto", "Open Sans", sans-serif;
     line-height: 1.5;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (max-width: 990px){
+    .card-title {
+        height: 120px;
+        /* font-family: 'Strait', sans-serif; */
+        font-family: 'Catamaran', sans-serif;
+        font-size: 40px;
+        line-height: 1.3;
+    }
 }

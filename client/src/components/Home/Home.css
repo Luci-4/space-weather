@@ -25,40 +25,6 @@ body{
     height: 100vh;
 
 }
-.page-title {
-    color: white;
-    
-    
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    font-size: 100px;
-    font-family: 'Catamaran', sans-serif;
-    cursor:default;
-    
-
-}
-
-.title-letter {
-    font-family: 'Strait', sans-serif;
-    
-    
-}
-.title-letter:hover {
-    /* color: red; */
-    
-    /* text-shadow: -8px 8px 0 #41ba45,
-	8px 8px 0 #c63d2b,
-	8px -8px 0 #42afac,
-	-8px -8px 0 #c6c23f; */
-    text-transform: uppercase;
-    color: rgba(0,168,255,0.5);
-    text-shadow: 8px 8px 0 rgba(255, 0, 180, 50%);
-}
-.first-title-letter {
-    color: rgba(0,168,255,0.5);
-    text-shadow: 8px 8px 0 rgba(255, 0, 180, 50%);
-}
 .banner {
     background-image: url('./earth-edge.jpg');
     background-size: cover;

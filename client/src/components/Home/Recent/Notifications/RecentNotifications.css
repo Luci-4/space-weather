@@ -1,17 +1,21 @@
 .NotifBar {
     margin-top: 50px;
-    display: flex;
+    display: grid;
+    
     justify-content: center;
     margin-bottom: 50px;
     color: rgb(216, 153, 216);
-    
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-rows: 100% 100% 100%;
 }
 
 .Notification {
     margin: 20px;
-    width: 25%;
-    display: flex;
-    justify-content: space-between;
+    
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 100%;
+    
     border: 0px solid transparent;
 }
 .Notification:hover {
@@ -35,20 +39,21 @@
 .notif-title {
     font-size: 20px;
     color: rgb(250, 215, 250);
+    margin-bottom: 5px;
     
 }
 
 
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1400px) {
     .NotifBar {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        grid-template-columns: 100%;
+        grid-template-rows: 33.33% 33.33% 33.33%;
+        
     }
     .Notification {
         width: 90%;
-
+        
         
     }
     .Notification:hover {

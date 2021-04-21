@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Strait&display=swap');
+
+body{
+    font-family: 'Strait', sans-serif;;
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -5,11 +12,58 @@
 .container >img {
     width: 100vw;
 }
+.section-content {
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+
+}
+.page-title {
+    color: white;
+    
+    
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Catamaran', sans-serif;
+    cursor:default;
+    
+
+}
+
+.title-letter {
+    font-family: 'Strait', sans-serif;
+    
+    
+}
+.title-letter:hover {
+    /* color: red; */
+    
+    /* text-shadow: -8px 8px 0 #41ba45,
+	8px 8px 0 #c63d2b,
+	8px -8px 0 #42afac,
+	-8px -8px 0 #c6c23f; */
+    text-transform: uppercase;
+    color: rgba(0,168,255,0.5);
+    text-shadow: 8px 8px 0 rgba(255, 0, 180, 50%);
+}
+.first-title-letter {
+    color: rgba(0,168,255,0.5);
+    text-shadow: 8px 8px 0 rgba(255, 0, 180, 50%);
+}
 .banner {
-    background-image: url('./xraysun.jpg');
+    background-image: url('./earth-edge.jpg');
     background-size: cover;
-    padding: 70px 0;
-    min-height: 350px;
+    /* padding: 70px 0; */
+    min-height: 100vh;
 }
 /* .main {
     width: 70vw;
@@ -19,3 +73,9 @@
 .sidebar {
     width: 30vw;
 } */
+
+.recent-notifs-section{
+    background: rgb(0, 18, 109);
+    color: rgb(216, 153, 216);
+
+}

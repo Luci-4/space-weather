@@ -1,0 +1,64 @@
+.NotifBar {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    color: rgb(216, 153, 216);
+    
+}
+
+.Notification {
+    margin: 20px;
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    border: 0px solid transparent;
+}
+.Notification:hover {
+    /* border-radius: 1.2rem; */
+    border-top: 5px solid transparent;
+    
+    
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+}
+
+.notif-time {
+    margin-right: 1rem;
+    width: 60%;
+    font-family: "Roboto", "Open Sans", sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    
+}
+
+.notif-title {
+    font-size: 20px;
+    color: rgb(250, 215, 250);
+    
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    .NotifBar {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .Notification {
+        width: 90%;
+
+        
+    }
+    .Notification:hover {
+        color: rgb(250, 215, 250);
+        
+        border: 0;
+    }
+    
+    
+    .notif-time {
+        margin-right: 5%;
+    }
+  }

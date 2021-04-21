@@ -1,5 +1,5 @@
 function formatDateTime(date) {
-    return date.replace(/T/g, " ").replace(/Z/, "");
+    return date?.replace(/T/g, " ").replace(/Z/, "") ?? null;
 }
 
 
@@ -22,4 +22,17 @@ function abbreviateSecondDateTimeInInterval(dateTime1, dateTime2){
     }
     return dateTime2;
 }
-export {formatDateTime, getDateTimeValue, abbreviateSecondDateTimeInInterval}
+
+function finalFormatDateTime(dateTime){
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    // yyyy-MM-dd hh:mm -> dd MM yyyy
+    const [date, time] = dateTime?.split(" ") || ["", ""];
+    let arr = date.split("-");
+    arr.reverse();
+    arr[1] = months[parseInt(arr[1])-1];
+    const currentDate = new Date()
+    console.log(arr[2] == currentDate.getFullYear());
+    arr[2] = arr[2] == currentDate.getFullYear() ? undefined : arr[2];
+    return arr?.join(" ").trim()+ ", " + time;
+}
+export {formatDateTime, getDateTimeValue, abbreviateSecondDateTimeInInterval, finalFormatDateTime}

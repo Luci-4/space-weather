@@ -8,7 +8,7 @@ import PageTitleMobile from "../PageTitle/PageTitleMobile";
 function Navbar() {
     return (
         <>
-        <nav className="NavbarItems">
+        <nav className="NavbarItems noselect">
             
             <PageTitleMobile/>
             <ul className="nav-menu">

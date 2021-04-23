@@ -3,7 +3,7 @@ import "./PageTitle.css"
 
 function PageTitle() {
     return (
-        <h1 className="page-title">
+        <h1 className="page-title noselect">
             <span class="first-title-letter title-letter">S</span>
             <span class="title-letter">P</span>
             <span class="title-letter">A</span>

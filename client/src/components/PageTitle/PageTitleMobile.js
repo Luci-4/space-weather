@@ -3,7 +3,7 @@ import "./PageTitle.css"
 
 function PageTitleMobile() {
     return (
-        <h1 className="page-title-mobile">
+        <h1 className="page-title-mobile noselect">
             <span class="first-title-letter title-letter">S</span>
             <span class="title-letter">P</span>
             <span class="title-letter">A</span>

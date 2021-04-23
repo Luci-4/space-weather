@@ -19,7 +19,7 @@ function CMECard() {
     
 
     return (
-        <div className="cme-card grid-field">
+        <div className="cme-card grid-field noselect">
             <h1 className="card-title">Coronal Mass Ejection</h1><br/>
             <p className="card-time">{
                 ((e) => {
@@ -33,7 +33,7 @@ function CMECard() {
             
             <CMETypeScale type = {CMEEvent?.type}/>
             
-            <p>{CMEEvent?.speed ?? null} {CMEEvent?.speed ? "km/s" : ""}</p>
+            <p>{CMEEvent?.speed ?? null} <span className="speed-value">{CMEEvent?.speed ? "km/s" : ""}</span></p>
                         
 
         </div>
@@ -53,7 +53,7 @@ function GSTCard() {
 
     
     return (
-        <div className="gst-card grid-field">
+        <div className="gst-card grid-field noselect">
             <h1 className="card-title">Magnetic Geostorm</h1><br/>
             <p className="card-time">{finalFormatDateTime(formatDateTime(GSTEvent?.startTime ?? null))} UTC</p>
                         
@@ -75,7 +75,7 @@ function FLRCard() {
     
 
     return (
-        <div className="flr-card grid-field">
+        <div className="flr-card grid-field noselect">
             <h1 className="card-title">Solar Flare</h1><br/>
             <p className="card-time">{finalFormatDateTime(formatDateTime(FLREvent?.beginTime ?? null))} UTC</p><br/>
             <FLRClassesScale currentClass={FLREvent?.class} score={FLREvent?.score}/>

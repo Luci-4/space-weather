@@ -1,9 +1,10 @@
 import React from "react";
 import {CMETypes} from "./CMETypes";
+import "./CMETypeScale.css";
 
 function CMETypeScale({type}) {
     return (
-      <p>{CMETypes?.[type]}</p>
+      <p className="cme-type">{CMETypes?.[type]}</p>
     );
 
 }

@@ -1,7 +1,8 @@
 import { fetchData } from "../../../../utils/data";
 import {formatDateTime, finalFormatDateTime} from "../../../../utils/dateTime"
 import {useState, useEffect} from "react";
-import locationIcon from './location.png';
+import locationIcon from "./location.png";
+import speedIcon from "./speed2.png"
 import CMETypeScale from "./Scales/CMETypeScale";
 import FLRClassesScale from "./Scales/FLRClassesScale";
 
@@ -27,13 +28,18 @@ function CMECard() {
                 })(finalFormatDateTime(formatDateTime(CMEEvent?.startTime)))
             }</p>
             <div className="card-tab">
-                <img className="card-icon" src={locationIcon}></img>
+                <img className="card-icon" src={locationIcon} alt="location"></img>
                 <p className="latlong">{CMEEvent?.latitude ?? null}, {CMEEvent?.longitude ?? null}</p><br/>
             </div>
+            <div className="card-tab">
+                <img className="card-icon" src={speedIcon} alt="speed"></img>
+                <div>
+                    <CMETypeScale type = {CMEEvent?.type}/>
+                    <p className="speed-value">{CMEEvent?.speed ?? null} {CMEEvent?.speed ? "km/s" : ""}</p>
+                </div>
+                
+            </div>
             
-            <CMETypeScale type = {CMEEvent?.type}/>
-            
-            <p>{CMEEvent?.speed ?? null} <span className="speed-value">{CMEEvent?.speed ? "km/s" : ""}</span></p>
                         
 
         </div>

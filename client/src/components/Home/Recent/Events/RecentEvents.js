@@ -1,6 +1,8 @@
 import React from "react";
 import "./RecentEvents.css";
-import {CMECard, GSTCard, FLRCard} from "./Cards";
+import CMECard from "./Cards/CMECard/CMECard";
+import GSTCard from "./Cards/GSTCard/GSTCard";
+import FLRCard from "./Cards/FLRCard/FLRCard";
 
 function RecentEvents() {
     

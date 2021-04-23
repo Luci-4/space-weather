@@ -1,6 +1,5 @@
 import React from "react";
 import {CMETypes} from "./CMETypes";
-import "./CMETypeScale.css";
 
 function CMETypeScale({type}) {
     return (

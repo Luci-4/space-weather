@@ -2,6 +2,8 @@ import { fetchData } from "../../../../utils/data";
 import {formatDateTime, finalFormatDateTime} from "../../../../utils/dateTime"
 import {useState, useEffect} from "react";
 import locationIcon from './location.png';
+import CMETypeScale from "./Scales/CMETypeScale";
+import FLRClassesScale from "./Scales/FLRClassesScale";
 
 function CMECard() {
     const [CMEEvent, setCMEEvent] = useState(null);
@@ -29,7 +31,7 @@ function CMECard() {
                 <p className="latlong">{CMEEvent?.latitude ?? null}, {CMEEvent?.longitude ?? null}</p><br/>
             </div>
             
-            <h1>{CMEEvent?.type}</h1>
+            <CMETypeScale type = {CMEEvent?.type}/>
             
             <p>{CMEEvent?.speed ?? null} {CMEEvent?.speed ? "km/s" : ""}</p>
                         
@@ -76,7 +78,7 @@ function FLRCard() {
         <div className="flr-card grid-field">
             <h1 className="card-title">Solar Flare</h1><br/>
             <p className="card-time">{finalFormatDateTime(formatDateTime(FLREvent?.beginTime ?? null))} UTC</p><br/>
-            <h1>{FLREvent?.classType ?? null}</h1>
+            <FLRClassesScale currentClass={FLREvent?.class} score={FLREvent?.score}/>
             <p>Source: {FLREvent?.sourceLocation ?? null}</p>
             <ul>
                 {FLREvent?.kpIndices?.map((kpIndex, index) =>{

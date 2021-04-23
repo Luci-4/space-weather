@@ -1,0 +1,106 @@
+.flr-classes-scale-container {
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 44px 20px;
+}
+
+.flr-classes-scale-list{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 44px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 100%;
+    border: 3px solid transparent;
+    border-radius: 80px;
+}
+.flr-class, .flr-class-scale-item {
+    color: white;
+    text-align: center;
+    justify-content: center;
+    font-size: 24px;
+    opacity: 0.4;
+    font-weight: 800;
+}
+
+.flr-class {
+   opacity: 1;
+    
+    
+}
+.flr-classes-circles-container {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.flr-classes-scale-circles {
+    
+    width: 80%;
+    height: 10px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 100%;
+    background: rgb(42,216,20);
+    background: linear-gradient(90deg, rgba(42,216,20,1) 10%, rgba(227,217,8,1) 30%, rgba(255,83,3,1) 48%, rgba(255,35,35,1) 65%, rgba(234,14,185,1) 100%);
+    border-radius: 80px;
+    margin: auto;
+    
+}
+.flr-classes-scale-circles > li {
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+    position: relative;
+    width: 20%;
+    transform: translateX(-50%)
+}
+
+.flr-class-circle {
+    
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    bottom: 0;
+    top: 0;
+    border: 4px solid;
+    
+    position: absolute;
+    margin: auto;
+    background: white;
+}
+
+
+/* circles unique colors */
+
+.index-0 {
+    border-color: rgba(42,216,20,1);
+}
+
+.index-1 {
+    border-color: rgba(227,217,8,1)
+}
+.index-2 {
+    border-color: rgba(255,83,3,1);
+}
+
+.index-3 {
+    border-color: rgba(255,35,35,1);
+}
+
+.index-4 {
+    border-color: rgba(234,14,185,1);
+}
+
+.thick-circle {
+    width: 28px;
+    height: 28px;
+    border-width: 8px;
+    
+}

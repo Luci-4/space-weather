@@ -26,7 +26,7 @@ function FLRClassesScale({currentClass, score}) {
                             let itemClassName = isInCurrentClass ? `flr-class-circle index-${index} thick-circle` :`flr-class-circle index-${index}`;
                             return (
                                 <li key={index}>
-                                    <div class={itemClassName}></div>
+                                    <div className={itemClassName}></div>
                                 </li>
                                 )
 

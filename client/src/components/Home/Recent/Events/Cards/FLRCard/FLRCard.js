@@ -22,17 +22,7 @@ function FLRCard() {
             <h1 className="card-title">Solar Flare</h1><br/>
             <p className="card-time">{finalFormatDateTime(formatDateTime(FLREvent?.beginTime ?? null))} UTC</p><br/>
             <FLRClassesScale currentClass={FLREvent?.class} score={FLREvent?.score}/>
-            <p>Source: {FLREvent?.sourceLocation ?? null}</p>
-            <ul>
-                {FLREvent?.kpIndices?.map((kpIndex, index) =>{
-                    return (
-                        <li key={index}>
-                            <p>{finalFormatDateTime(formatDateTime(kpIndex?.observedTime))}</p>
-                            <p>{kpIndex?.kpIndex}</p>
-                            <p>{kpIndex?.source}</p>
-                        </li>);
-                })}
-            </ul>
+            <p className="flr-source">Source: {FLREvent?.sourceLocation ?? null}</p>
             
         </div>
     );

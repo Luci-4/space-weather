@@ -4,19 +4,19 @@ import "./PageTitle.css"
 function PageTitleMobile() {
     return (
         <h1 className="page-title-mobile noselect">
-            <span class="first-title-letter title-letter">S</span>
-            <span class="title-letter">P</span>
-            <span class="title-letter">A</span>
-            <span class="title-letter">C</span>
-            <span class="title-letter">E</span>
+            <span className="first-title-letter title-letter">S</span>
+            <span className="title-letter">P</span>
+            <span className="title-letter">A</span>
+            <span className="title-letter">C</span>
+            <span className="title-letter">E</span>
             <span> </span>
-            <span class="first-title-letter title-letter">W</span>
-            <span class="title-letter">E</span>
-            <span class="title-letter">A</span>
-            <span class="title-letter">T</span>
-            <span class="title-letter">H</span>
-            <span class="title-letter">E</span>
-            <span class="title-letter">R</span>
+            <span className="first-title-letter title-letter">W</span>
+            <span className="title-letter">E</span>
+            <span className="title-letter">A</span>
+            <span className="title-letter">T</span>
+            <span className="title-letter">H</span>
+            <span className="title-letter">E</span>
+            <span className="title-letter">R</span>
                    
 
 

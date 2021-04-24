@@ -22,7 +22,7 @@ function Home() {
                 
             </section>
 
-            <section class="recent-notifs-section">
+            <section className="recent-notifs-section">
                 <RecentNotifications/>
             </section>
             

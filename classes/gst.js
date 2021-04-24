@@ -13,7 +13,8 @@ class GST {
                 obj.source
                 );
         }) ?? null;
-
+        let kpIndicesValues = this.kpIndices?.map(e => e?.kpIndex);
+        this.maxKpIndex = kpIndicesValues ? Math.max(...kpIndicesValues) : null;
     }
 }
 

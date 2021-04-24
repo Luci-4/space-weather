@@ -1,17 +1,17 @@
 const MenuItems = [
     {
         title: "Home",
-        url: "#",
+        url: "/",
         cName: "nav-links"
     },
     {
         title: "News",
-        url: "#",
+        url: "/news",
         cName: "nav-links"
     },
     {
         title: "About",
-        url: "#",
+        url: "/",
         cName: "nav-links"
     },
 ]

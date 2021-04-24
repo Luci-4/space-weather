@@ -6,6 +6,31 @@ import {formatDateTime, finalFormatDateTime} from "../../../../../../utils/dateT
 import CMETypeScale from "./Scales/CMETypeScale";
 import locationIcon from "./icons/location.png";
 import speedIcon from "./icons/speed2.png"
+import CardTime from "../CardTime";
+
+function LatLong({lat, long}){
+    return (
+
+        <div className="card-tab">
+            <img className="card-icon" src={locationIcon} alt="location"></img>
+            <p className="latlong">{
+                lat && long ? `${lat}, ${long}` : ""
+                }</p>
+        </div>
+    );
+}
+function Speed({speed, type}){
+    return (
+        <div className="card-tab">
+            <img className="card-icon" src={speedIcon} alt="speed"></img>
+            <div>
+                <CMETypeScale type = {type}/>
+                <p className="speed-value">{speed ? `${speed} km/s` : ""}</p>
+            </div>     
+        </div>
+    );
+}
+
 
 function CMECard() {
     const [CMEEvent, setCMEEvent] = useState(null);
@@ -22,22 +47,9 @@ function CMECard() {
     return (
         <div className="cme-card grid-field noselect">
             <h1 className="card-title">Coronal Mass Ejection</h1><br/>
-            <p className="card-time">{
-                ((e) => {
-                    return e ? e + " UTC" : ""
-                })(finalFormatDateTime(formatDateTime(CMEEvent?.startTime)))
-            }</p>
-            <div className="card-tab">
-                <img className="card-icon" src={locationIcon} alt="location"></img>
-                <p className="latlong">{CMEEvent?.latitude ?? null}, {CMEEvent?.longitude ?? null}</p><br/>
-            </div>
-            <div className="card-tab">
-                <img className="card-icon" src={speedIcon} alt="speed"></img>
-                <div>
-                    <CMETypeScale type = {CMEEvent?.type}/>
-                    <p className="speed-value">{CMEEvent?.speed ?? null} {CMEEvent?.speed ? "km/s" : ""}</p>
-                </div>     
-            </div>
+            <CardTime time={CMEEvent?.startTime || null}/>
+            <LatLong lat={CMEEvent?.latitude ?? null} long={CMEEvent?.longitude ?? null}/>
+            <Speed speed={CMEEvent?.speed ?? null} type={CMEEvent?.type}/>
         </div>
     );
 }

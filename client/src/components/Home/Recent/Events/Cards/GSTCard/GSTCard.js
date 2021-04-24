@@ -3,6 +3,7 @@ import {useState, useEffect} from "react";
 import { fetchData } from "../../../../../../utils/data";
 import {formatDateTime, finalFormatDateTime} from "../../../../../../utils/dateTime";
 import {kpIndices} from "./Scales/KpIndices";
+import CardTime from "../CardTime";
 
 function GSTCard() {
     const [GSTEvent, setGSTEvent] = useState(null);
@@ -19,7 +20,7 @@ function GSTCard() {
     return (
         <div className="gst-card grid-field noselect">
             <h1 className="card-title">Magnetic Activity</h1><br/>
-            <p className="card-time">{finalFormatDateTime(formatDateTime(GSTEvent?.startTime ?? null))} UTC</p>
+            <CardTime time={GSTEvent?.startTime ?? null}/>
             <p className="kp-activity">{kpIndices[Math.round(GSTEvent?.maxKpIndex)]}</p>
         </div>
     );

@@ -1,8 +1,8 @@
 import React from "react";
 import {useState, useEffect} from "react";
 import { fetchData } from "../../../../../../utils/data";
-import {formatDateTime, finalFormatDateTime} from "../../../../../../utils/dateTime"
 import FLRClassesScale from "./Scales/FLRClassesScale";
+import CardTime from "../CardTime";
 
 function FLRCard() {
     const [FLREvent, setFLREvent] = useState(null);
@@ -20,7 +20,7 @@ function FLRCard() {
     return (
         <div className="flr-card grid-field noselect">
             <h1 className="card-title">Solar Flare</h1><br/>
-            <p className="card-time">{finalFormatDateTime(formatDateTime(FLREvent?.beginTime ?? null))} UTC</p><br/>
+            <CardTime time={FLREvent?.beginTime ?? null}/>
             <FLRClassesScale currentClass={FLREvent?.class} score={FLREvent?.score}/>
             <p className="flr-source">Source: {FLREvent?.sourceLocation ?? null}</p>
             

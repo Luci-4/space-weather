@@ -19,20 +19,19 @@ function FLRClassesScale({currentClass, score}) {
 
                 })}
             </ul>
-            <div className="flr-classes-circles-container">
-                <ul className="flr-classes-scale-circles">
-                    {FLRClasses.map((classItem, index) => {
-                            let isInCurrentClass = classItem === currentClass;
-                            let itemClassName = isInCurrentClass ? `flr-class-circle index-${index} thick-circle` :`flr-class-circle index-${index}`;
-                            return (
-                                <li key={index}>
-                                    <div className={itemClassName}></div>
-                                </li>
-                                )
+            
+            <ul className="flr-classes-scale-circles">
+                {FLRClasses.map((classItem, index) => {
+                        let isInCurrentClass = classItem === currentClass;
+                        let itemClassName = isInCurrentClass ? `flr-class-circle index-${index} thick-circle` :`flr-class-circle index-${index}`;
+                        return (
+                            <li key={index}>
+                                <div className={itemClassName}></div>
+                            </li>
+                            )
 
-                    })}
-                </ul>
-            </div>
+                })}
+            </ul>
             
         </div>
         

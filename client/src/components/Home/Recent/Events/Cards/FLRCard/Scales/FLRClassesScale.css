@@ -15,7 +15,8 @@
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: 100%;
-    border: 3px solid transparent;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
     border-radius: 80px;
 }
 .flr-class, .flr-class-scale-item {
@@ -31,12 +32,6 @@
    opacity: 1;
     
     
-}
-.flr-classes-circles-container {
-    width: 100%;
-    height: 20px;
-    display: flex;
-    align-items: center;
 }
 
 .flr-classes-scale-circles {
@@ -58,8 +53,7 @@
     margin-left: auto;
     height: 100%;
     position: relative;
-    width: 20%;
-    transform: translateX(-50%)
+    width: 100%;
 }
 
 .flr-class-circle {
@@ -72,6 +66,8 @@
     border: 4px solid;
     
     position: absolute;
+    right: 0;
+    left: 0;
     margin: auto;
     background: white;
 }

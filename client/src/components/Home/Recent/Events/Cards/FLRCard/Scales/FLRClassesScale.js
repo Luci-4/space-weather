@@ -1,37 +1,32 @@
 import React from "react";
-import {FLRClasses} from "./FLRClasses";
+import {FLRClasses, calculateFLRPowerFullScore} from "./FLRClasses";
+import strengthIcon from "./strength.png";
 import "./FLRClassesScale.css"
 
 function FLRClassesScale({currentClass, score}) {
+    
+    const absoluteScore = calculateFLRPowerFullScore(currentClass, score);
+    console.log(`index-${Math.floor(Math.round(absoluteScore*10)/2)}`)
+    
     return (
-        <div className="flr-classes-scale-container">
-            <ul className="flr-classes-scale-list">
-                {FLRClasses.map((classItem, index) => {
-                    let isInCurrentClass = classItem === currentClass;
-                    let itemClassName = isInCurrentClass ? "flr-class" :"flr-class-scale-item";
-                        return (
-                            <li className={itemClassName}key={index}>
-                                
-                                {classItem}{isInCurrentClass ? null : null}
-                                
-                            </li>
-                            )
-
-                })}
-            </ul>
+        <div className="flr-classes-scale card-tab">
             
-            <ul className="flr-classes-scale-circles">
-                {FLRClasses.map((classItem, index) => {
-                        let isInCurrentClass = classItem === currentClass;
-                        let itemClassName = isInCurrentClass ? `flr-class-circle index-${index} thick-circle` :`flr-class-circle index-${index}`;
-                        return (
-                            <li key={index}>
-                                <div className={itemClassName}></div>
-                            </li>
-                            )
+            <img className="card-icon strength-icon" src={strengthIcon} alt="strength"></img>
+            <div className="flr-classes-scale-container">
+                <div className="flr-class-label-container">
+                    <div className="flr-scale-label" style={{left:`${Math.round(absoluteScore*100)}%`}}>
 
-                })}
-            </ul>
+                        <div className="flr-class-text">{currentClass}{score}</div>
+                    </div>
+                </div>
+                <div className="flr-classes-scale-circles">
+                    
+                    <div className="flr-circle-center" style={{left:`${Math.round(absoluteScore*100)}%`}}>
+                        <div className={`flr-class-circle index-${Math.floor(Math.round(absoluteScore*10)/2)}`}></div>
+                    </div>
+                </div>
+            
+            </div>
             
         </div>
         

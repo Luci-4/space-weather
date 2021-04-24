@@ -1,24 +1,18 @@
+.flr-classes-scale {
+    display: flex;
+}
+
 .flr-classes-scale-container {
-    margin-left: auto;
+    margin-left: 14px;
     margin-right: auto;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 44px 20px;
+    grid-template-rows: 32px 32px;
+    height: 64px;
+    width: 80%;
 }
 
-.flr-classes-scale-list{
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    height: 44px;
-    list-style: none;
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 100%;
-    border-top: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-    border-radius: 80px;
-}
+
 .flr-class, .flr-class-scale-item {
     color: white;
     text-align: center;
@@ -30,30 +24,59 @@
 
 .flr-class {
    opacity: 1;
-    
-    
 }
+
+.strength-icon {
+    margin: auto 0 9px auto;
+    width: 30px;
+    height: 30px;
+}
+
+.flr-class-label-container {
+    width: 90%;
+    margin: 10px auto;
+    position: relative;
+}
+
+.flr-scale-label {
+    position: absolute;
+    margin: auto;
+    width: 32px;
+    height: 32px;
+}
+.flr-class-text {
+    bottom: 0;
+    top: 0;
+    
+    
+    position: absolute;
+    margin: auto;
+    margin-left: -50%;
+}
+
 
 .flr-classes-scale-circles {
     
-    width: 80%;
+    width: 90%;
     height: 10px;
-    list-style: none;
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 100%;
+    
     background: rgb(42,216,20);
     background: linear-gradient(90deg, rgba(42,216,20,1) 10%, rgba(227,217,8,1) 30%, rgba(255,83,3,1) 48%, rgba(255,35,35,1) 65%, rgba(234,14,185,1) 100%);
     border-radius: 80px;
     margin: auto;
+    position: relative;
     
 }
-.flr-classes-scale-circles > li {
-    margin-right: auto;
-    margin-left: auto;
-    height: 100%;
-    position: relative;
-    width: 100%;
+
+
+.flr-circle-center{
+    
+    height: 10px;
+    position: absolute;
+    width: 20px;
+    
+    margin: auto;
+
 }
 
 .flr-class-circle {
@@ -66,9 +89,8 @@
     border: 4px solid;
     
     position: absolute;
-    right: 0;
-    left: 0;
     margin: auto;
+    margin-left: -50%;
     background: white;
 }
 

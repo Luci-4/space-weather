@@ -106,7 +106,13 @@
     font-weight: 300;
     font-size: 90%;
 }
+.flr-source {
+    margin-top: 30px;
 
+}
+.kp-activity{
+    margin-top: 30px;
+}
 
 @media screen and (max-width: 990px){
     .card-title {

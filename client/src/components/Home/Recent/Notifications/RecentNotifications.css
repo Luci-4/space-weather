@@ -19,13 +19,11 @@
     border: 0px solid transparent;
 }
 .Notification:hover {
-    /* border-radius: 1.2rem; */
-    border-top: 5px solid transparent;
-    
-    
-    transition: all 0.2s ease-out;
+    color: rgb(250, 215, 250);
     cursor: pointer;
+    border: 0;
 }
+
 
 .notif-time {
     margin-right: 1rem;
@@ -33,12 +31,11 @@
     font-family: "Roboto", "Open Sans", sans-serif;
     font-weight: 300;
     line-height: 1.5;
-    
 }
 
 .notif-title {
     font-size: 20px;
-    color: rgb(250, 215, 250);
+    /* color: rgb(250, 215, 250); */
     margin-bottom: 5px;
     
 }
@@ -56,12 +53,6 @@
         
         
     }
-    .Notification:hover {
-        color: rgb(250, 215, 250);
-        
-        border: 0;
-    }
-    
     
     .notif-time {
         margin-right: 5%;

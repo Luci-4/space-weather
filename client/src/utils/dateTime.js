@@ -31,7 +31,6 @@ function finalFormatDateTime(dateTime){
     arr.reverse();
     arr[1] = months[parseInt(arr[1])-1];
     const currentDate = new Date()
-    console.log(arr[2] == currentDate.getFullYear());
     arr[2] = arr[2] == currentDate.getFullYear() ? undefined : arr[2];
     return arr?.join(" ").trim()+ ", " + time;
 }

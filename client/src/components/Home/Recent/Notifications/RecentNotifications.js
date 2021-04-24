@@ -8,7 +8,7 @@ function RecentNotifications(){
     useEffect(() => {
         (async () => {
             setMessages((await (fetchData("notifications")))
-                .sort((a, b) => {
+                ?.sort((a, b) => {
                     return getDateTimeValue(b.issueTime) - getDateTimeValue(a.issueTime);
                 })
                 .filter(message => !message.body.type.includes("Weekly Space Weather Summary Report for"))

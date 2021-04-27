@@ -9,9 +9,9 @@ function RecentNotifications(){
         (async () => {
             setMessages((await (fetchData("notifications")))
                 ?.sort((a, b) => {
-                    return getDateTimeValue(b.issueTime) - getDateTimeValue(a.issueTime);
+                    return getDateTimeValue(b?.issueTime) - getDateTimeValue(a?.issueTime);
                 })
-                .filter(message => !message.body.type.includes("Weekly Space Weather Summary Report for"))
+                .filter(message => !message?.body?.type?.includes("Weekly Space Weather Summary Report for"))
             )
             
         })();

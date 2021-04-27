@@ -33,7 +33,7 @@ const getCME = async (req, res) => {
 
         res.status(200).json(CMEObjects);
     } catch (error) {
-        res.status(404).json({message: error.message});
+        res.status(404).json([null]);
     }
     
 }
@@ -56,7 +56,7 @@ const getGST = async (req, res) => {
         // const GSTObject = new gstFile.GST(data.slice(-1)[0]);
         res.status(200).json(GSTObjects)
     } catch (error) {
-        res.status(404).json({message: error.message})
+        res.status(404).json([null])
     }
     
     
@@ -78,7 +78,7 @@ const getFLR = async (req, res) => {
         // const FLRObject = new flrFile.FLR(data.slice(-1)[0]);
         res.status(200).json(FLRObjects);
     } catch (error) {
-        res.status(404).json({message: error.message})
+        res.status(404).json([null])
     }
     
 }
@@ -96,9 +96,9 @@ const getNotifications = async (req, res) => {
             return new messageFile.Message(messageObj);
         })
         
-        res.json(messages);
+        res.status(200).json(messages);
     } catch (error) {
-        res.status(404).json({message: error.message})
+        res.status(404).json([null])
     }
     
 }

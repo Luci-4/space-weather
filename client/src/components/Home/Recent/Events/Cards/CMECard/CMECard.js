@@ -37,13 +37,12 @@ function CMECard() {
     
     useEffect(() => {
         (async () => {
-            setCMEEvent((await (fetchData("cme")))[0])
+            setCMEEvent((await (fetchData("cme")))?.[0])
             
         })();
         
     }, [])
 
-    
     return (
         <div className="cme-card grid-field noselect">
             <h1 className="card-title">Coronal Mass Ejection</h1><br/>

@@ -6,7 +6,15 @@ import "./FLRClassesScale.css"
 function FLRClassesScale({currentClass, score}) {
     
     const absoluteScore = calculateFLRPowerFullScore(currentClass, score);
-    console.log(`index-${Math.floor(Math.round(absoluteScore*10)/2)}`)
+
+    // TODO: add loading animation instead of Loading...
+    if(null === (null ?? absoluteScore)){
+        return (
+            <div className="flr-classes-scale card-tab">
+                Loading...
+            </div>
+        );
+    }
     
     return (
         <div className="flr-classes-scale card-tab">
@@ -22,7 +30,14 @@ function FLRClassesScale({currentClass, score}) {
                 <div className="flr-classes-scale-circles">
                     
                     <div className="flr-circle-center" style={{left:`${Math.round(absoluteScore*100)}%`}}>
-                        <div className={`flr-class-circle index-${Math.floor(Math.round(absoluteScore*10)/2)}`}></div>
+                        <div className={`flr-class-circle index-${((currentScore) => {
+                            if(null === (null ?? currentScore)){
+                                return "none";
+                            }
+                            return Math.floor(Math.round(currentScore*10)/2);
+                        })(absoluteScore)}`}>
+
+                        </div>
                     </div>
                 </div>
             

@@ -96,7 +96,10 @@
 
 
 /* circles unique colors */
-
+.index-none {
+    border-color: transparent;
+    background: transparent;
+}
 .index-0 {
     border-color: rgba(42,216,20,1);
 }

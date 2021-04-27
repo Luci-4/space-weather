@@ -2,12 +2,12 @@ import { finalFormatDateTime, formatDateTime } from "../../../../utils/dateTime"
 
 function NotifTime({time}){
     return (
-        <div>
-            <p>{
+        
+        <div className="notif-time">{
                 (unformatedTime => {
-                    return unformatedTime ? `${finalFormatDateTime(formatDateTime(unformatedTime))}` : "";
+                    return unformatedTime ? finalFormatDateTime(formatDateTime(unformatedTime)).split(", ").join(" ") : ""
                 })(time)
-            }</p>
+            }
         </div>
         
     );

@@ -1,6 +1,3 @@
-import { average } from "../../../../../../../utils/math";
-
-
 export const kpIndices = [
     "Quiet",
     "Quiet",

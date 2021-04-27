@@ -1,7 +1,6 @@
 import React from "react";
 import {useState, useEffect} from "react";
 import { fetchData } from "../../../../../../utils/data";
-import {formatDateTime, finalFormatDateTime} from "../../../../../../utils/dateTime";
 import {kpIndices} from "./Scales/KpIndices";
 import CardTime from "../CardTime";
 
@@ -10,7 +9,7 @@ function GSTCard() {
 
     useEffect(() => {
         (async () => {
-            setGSTEvent((await (fetchData("gst")))[0])
+            setGSTEvent((await (fetchData("gst")))?.[0])
             
         })();
         

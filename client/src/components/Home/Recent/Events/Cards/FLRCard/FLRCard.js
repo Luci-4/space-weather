@@ -9,7 +9,9 @@ function FLRCard() {
 
     useEffect(() => {
         (async () => {
-            setFLREvent((await (fetchData("flr")))[0])
+            const dataArr = (await (fetchData("flr")))
+            console.log(dataArr);
+            setFLREvent(dataArr?.[0])
             
         })();
         
@@ -22,7 +24,7 @@ function FLRCard() {
             <h1 className="card-title">Solar Flare</h1><br/>
             <CardTime time={FLREvent?.beginTime ?? null}/>
             <FLRClassesScale currentClass={FLREvent?.class} score={FLREvent?.score}/>
-            <p className="flr-source">Source: {FLREvent?.sourceLocation ?? null}</p>
+            <p className="flr-source">{(source => source ? `Source: ${source}` : "")(FLREvent?.sourceLocation)}</p>
             
         </div>
     );

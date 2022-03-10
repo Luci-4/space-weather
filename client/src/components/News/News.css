@@ -1,6 +1,6 @@
 .news-messages-container{
-    width: 100vw;
-    height: 100vh;
-    background: rgb(63,94,251);
-    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(255,0,255,0.5) 100%);
+    width: 100%;
+    /* background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(255,0,255,0.5) 100%); */
+    background: #ff00ff80;
 }

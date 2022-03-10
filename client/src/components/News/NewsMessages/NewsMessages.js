@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchData } from "../../../utils/data";
+import NewsMessage from "./NewsMessage/NewsMessage";
 import "./NewsMessages.css"
 
 function NewsMessages(){
@@ -15,7 +16,8 @@ function NewsMessages(){
     return (
         <div className="NewsMessages">
             {NewsMessages?.map((newsMessage, index) => {
-                return <div key={index}>{newsMessage?.type}</div>
+                // return <div key={index}>{newsMessage?.type}</div>
+                return <NewsMessage key={index} {...newsMessage} indexIsEven={index % 2 === 0}/>
                 })}
         </div>
     );
